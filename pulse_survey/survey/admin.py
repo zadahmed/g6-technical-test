@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from pulse_survey.survey.models import Result, Feedback
+
+
+admin.site.register(Result)
+admin.site.register(Feedback)
