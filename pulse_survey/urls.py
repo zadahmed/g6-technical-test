@@ -22,6 +22,7 @@ from pulse_survey.survey import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index)
+    path('', views.index),
+    path('survey/team-question/', views.team_view, name='team')
 
 ]

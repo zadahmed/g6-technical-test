@@ -6,9 +6,18 @@ from django.urls import reverse
 
 
 def environment(**options):
-    env = Environment(**options)
-    env.globals.update({
-       'static': static,
-       'url': reverse,
-    })
+    extra_options = dict()
+    env = Environment(
+        **{
+            **options,
+            **extra_options,
+        }
+    )
+    env.globals.update(
+        {
+            "static": static,
+            "url": reverse,
+            "DEBUG": settings.DEBUG,
+        }
+    )
     return env
