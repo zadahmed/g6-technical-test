@@ -2,7 +2,7 @@
 
 Example pulse survey for coding test - not a real project.
 
-This contains a Django app which uses SQLite database.
+Before the technical test, ensure you have cloned the repo, and have made a copy in your
 
 ## Summary
 
@@ -12,6 +12,8 @@ The Cabinet Office are running a pulse survey to understand staff wellbeing. Cab
 - Collect info on team and location, in addition to answers to wellbeing questions
 - Separately to survey responses, staff can enter feedback and email if they wish to discuss issues more
 
+This is a Django app with a SQLite database.
+
 ## How to run with Docker
 
 - Run the app locally `docker-compose up --build`
@@ -19,7 +21,9 @@ The Cabinet Office are running a pulse survey to understand staff wellbeing. Cab
 
 ## How to run without Docker
 
-- Install packages with `pip install -r requirements.lock` (ideally into a virtual environment) (TODO - lock file?)
+- Install packages with `pip install -r requirements.lock` (ideally into a virtual environment)
 - Run migrations `python manage.py migrate` (only need to do this once, or if you make changes to models)
 - Run the app locally `python manage.py runserver`
 - Go to `http://localhost:8000` in the browser to try the app
+
+This has been tested using Python 3.8.
