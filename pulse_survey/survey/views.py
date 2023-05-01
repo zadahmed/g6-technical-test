@@ -12,8 +12,9 @@ def team_view(request):
     errors = {}
     if request.method == "POST":
         # add session)id
+        # TODO match results
         Result(data=request.data).save()
-        return render(request, template_name="team_question.html", context={"request": request, "errors": errors})
+        return render(request, "team_question.html", {"request": request, "errors": errors})
 
     #"session_id": session_id, 
-    return render(request, template_name="team_question.html", context={"request": request, "errors": errors})
+    return render(request, "team_question.html", {"errors": errors, "question": "question 1"})
