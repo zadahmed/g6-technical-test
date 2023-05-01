@@ -1,8 +1,10 @@
 # pulse-survey-example
 
-Example pulse survey for coding test - not a real project.
+Example pulse survey for technical test - not a real project.
 
-Before the technical test, ensure you have cloned the repo, and have made a copy in your
+In advance of the technical test, clone this repo. Push your copy of the repository to a suitable service so that we can see the results (eg GitLab or GitHub). That is, don't push changes to this repo, as multiple people will be completing the technical test.
+
+Before taking the technical test, ensure that you can get the Django app up and running (instructions below). Also make sure that you are able to make changes to the codebase and create pull requests in your repo. Make sure that this repo is public so assessors can see your code.
 
 ## Summary
 
@@ -10,7 +12,7 @@ The Cabinet Office are running a pulse survey to understand staff wellbeing. Cab
 
 - Staff details will not be submitted with their survey responses (session ID will be stored to distinguish participants)
 - Collect info on team and location, in addition to answers to wellbeing questions
-- Separately to survey responses, staff can enter feedback and email if they wish to discuss issues more
+- Separately to survey responses, staff can enter feedback and their email if they wish to discuss issues more
 
 This is a Django app with a SQLite database.
 
