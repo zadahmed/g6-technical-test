@@ -18,7 +18,7 @@ TBC
 
 ## How to run without Docker
 
-- Install packages with `pip install -r requirements.txt` (ideally into a virtual environment) (TODO - lock file?)
+- Install packages with `pip install -r requirements.lock` (ideally into a virtual environment) (TODO - lock file?)
 - Run migrations `python manage.py migrate` (only need to do this once, or if you make changes to models)
 - Run the app locally `python manage.py runserver`
 - Go to `http://localhost:8000` in the browser to see the app
