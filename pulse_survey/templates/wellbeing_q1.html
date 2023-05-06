@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+  <form method="post">{{csrf_input}}
+    <fieldset>
+      <h1>There are opportunities for me to develop my career in my organisation</h1>
+      <div class="radio">
+        {% for answer in answers %}
+          {% if answer == chosen_answer %}
+            <input type="radio" name="q1" value="{{ answer }}" selected="selected">{{ answer }}<br>  
+          {% else %}
+            <input type="radio" name="q1" value="{{ answer }}">{{ answer }}<br>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <input type="submit" value="Next question" name="next">
+    </fieldset>
+  </form>
+</div>
+{% endblock %}

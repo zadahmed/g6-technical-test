@@ -21,8 +21,10 @@ from pulse_survey.survey import views
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.index),
-    path('survey/<uuid:session_id>/team-question/', views.team_view, name='team'),
-    path('survey/<uuid:session_id>/location-question/', views.location_view, name='location')
+    path("admin/", admin.site.urls),
+    path("", views.index),
+    path("survey/<uuid:session_id>/team-question/", views.team_view, name="team"),
+    path("survey/<uuid:session_id>/location-question/", views.location_view, name="location"),
+    path("survey/<uuid:session_id>/wellbeing-q1/", views.wellbeing_q1_view, name="wellbeing-q1"),
+    path("survey/<uuid:session_id>/wellbeing-q2/", views.wellbeing_q2_view, name="wellbeing-q2")
 ]
