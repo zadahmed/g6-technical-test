@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse
+from django import forms
 
 from pulse_survey.survey.models import Result
 
@@ -67,7 +68,7 @@ def wellbeing_q1_view(request, session_id):
 
 def wellbeing_q2_view(request, session_id):
     errors = {}
-    page_number = 3
+    page_number = 4
     result, _ = Result.objects.get_or_create(session_id=session_id, page_number=page_number)
     answers = WELLBEING_RESPONSES
     chosen_answer = None
@@ -79,3 +80,8 @@ def wellbeing_q2_view(request, session_id):
         # TODO - next page
         return render(request, "index.html", {"request": request, "errors": errors})
     return render(request, "wellbeing_q2.html", {"errors": errors, "answers": answers, "chosen_answer": chosen_answer})
+
+
+class FeedbackForm(forms.Form):
+    email = forms.EmailField()
+    feedback = forms.TextInput()
