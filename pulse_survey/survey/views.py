@@ -1,3 +1,5 @@
+import uuid
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
@@ -7,13 +9,14 @@ from pulse_survey.survey.models import Result
 
 
 def index(request):
+    session_id = uuid.uuid4()
     start = request.GET.get("start")
     if start:
-        return redirect(reverse("team"))
-    return render(request=request, template_name="index.html")
+        return redirect(reverse("team", args=(session_id,)))
+    return render(request=request, template_name="index.html", context={"session_id": session_id})
 
 
-def team_view(request):
+def team_view(request, session_id):
     errors = {}
     if request.method == "POST":
         # add session)id

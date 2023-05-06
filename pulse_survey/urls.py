@@ -23,6 +23,5 @@ from pulse_survey.survey import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
-    path('survey/team-question/', views.team_view, name='team')
-
+    path('survey/<uuid:session_id>/team-question/', views.team_view, name='team')
 ]
