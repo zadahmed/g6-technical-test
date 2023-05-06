@@ -18,11 +18,16 @@ def index(request):
 
 def team_view(request, session_id):
     errors = {}
+    page_number = 1
+    result, _ = Result.objects.get_or_create(session_id=session_id, page_number=page_number)
+    team = {"Team A", "Team B", "Team C"}
+    chosen_team = None
+    if result.data:
+        chosen_team = result.data.get("team")
     if request.method == "POST":
-        # add session)id
-        # TODO match results
-        Result(data=request.data).save()
+        result.data = request.POST
+        result.save()
+        # TODO - next page
         return render(request, "team_question.html", {"request": request, "errors": errors})
 
-    #"session_id": session_id, 
-    return render(request, "team_question.html", {"errors": errors, "question": "question 1"})
+    return render(request, "team_question.html", {"errors": errors, "teams": team, "chosen_team": chosen_team})

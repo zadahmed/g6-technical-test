@@ -1,9 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
 <div>
-  <form>{{csrf_input}}
-    {{question}}
-
+  <form method="post">{{csrf_input}}
+    <fieldset>
+      <div class="radio">
+        {% for team in teams %}
+          {% if team == chosen_team %}
+            <input type="radio" name="team" value="{{ team }}" selected="selected">{{ team }}<br>  
+          {% else %}
+            <input type="radio" name="team" value="{{ team }}">{{ team }}<br>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <input type="submit" value="Next question" name="next">
+    </fieldset>
   </form>
 </div>
 {% endblock %}
