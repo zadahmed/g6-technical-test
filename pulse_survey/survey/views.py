@@ -84,4 +84,4 @@ def wellbeing_q2_view(request, session_id):
 
 class FeedbackForm(forms.Form):
     email = forms.EmailField()
-    feedback = forms.TextInput()
+    content = forms.TextInput()
