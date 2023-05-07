@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+  <form method="post">{{csrf_input}}
+    <fieldset>
+      <h1>Please provide any other feedback</h1>
+      <p>This feedback will not be linked to your other responses.</p>
+      <p>You may optionally enter your email if you wish to be contacted about your feedback.</p>
+      <input type="text" name="email">Email<br>  
+      <input type="text" name="content">Feedback<br> 
+      <input type="submit" value="Next question" name="next">
+    </fieldset>
+  </form>
+</div>
+{% endblock %}
