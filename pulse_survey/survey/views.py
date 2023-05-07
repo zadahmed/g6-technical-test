@@ -7,7 +7,7 @@ from django.urls import reverse
 from django import forms
 from django.views.generic.edit import FormView
 
-from pulse_survey.survey.models import Result
+from pulse_survey.survey.models import Result, Feedback
 
 
 WELLBEING_RESPONSES = {"Agree", "Strongly agree", "Disagree", "Strongly disagree", "Neither agree nor disagree"}
@@ -92,8 +92,13 @@ class FeedbackView(FormView):
     template_name = "feedback.html"
     form_class = FeedbackForm
     # TODO - end page
-    success_url = ""
+    success_url = "survey/end/"
 
     def form_valid(self, form):
-        # TODO - some stuff here
-        return super().form_valid(form)
+        Feedback(email=form.data["email"], content=form.data["content"]).save()
+        return redirect("end")
+    
+
+def end_view(request):
+    return render(request, "end.html")
+
