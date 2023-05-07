@@ -82,17 +82,18 @@ def wellbeing_q2_view(request, session_id):
     return render(request, "wellbeing_q2.html", {"errors": errors, "answers": answers, "chosen_answer": chosen_answer})
 
 
-# class FeedbackForm(forms.Form):
-#     template_name = "feedback.html"
-#     email = forms.EmailField()
-#     content = forms.TextInput()
+class FeedbackForm(forms.Form):
+    template_name = "feedback.html"
+    email = forms.EmailField()
+    content = forms.TextInput()
 
 
-# class FeedbackView(FormView):
-#     template_name = "feedback.html"
-#     form_class = FeedbackForm
-#     # TODO - end page
-#     success_url = reverse("index")
+class FeedbackView(FormView):
+    template_name = "feedback.html"
+    form_class = FeedbackForm
+    # TODO - end page
+    success_url = ""
 
-#     def form_valid(self, form):
-#         return super().form_valid(form)
+    def form_valid(self, form):
+        # TODO - some stuff here
+        return super().form_valid(form)
