@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 <div>
+  <h1>There are opportunities for me to develop my career in my organisation</h1>
+</div>
+<div>
   <form method="post">{{csrf_input}}
     <fieldset>
-      <h1>There are opportunities for me to develop my career in my organisation</h1>
       <div class="radio">
         {% for answer in answers %}
           {% if answer == chosen_answer %}

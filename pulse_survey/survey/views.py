@@ -78,7 +78,7 @@ def wellbeing_q2_view(request, session_id):
     if request.method == "POST":
         result.data = request.POST
         result.save()
-        return redirect(reverse("wellbeing-q2", args=(session_id,))) # TODO - get the next page
+        return redirect(reverse("feedback"))
     return render(request, "wellbeing_q2.html", {"errors": errors, "answers": answers, "chosen_answer": chosen_answer})
 
 
