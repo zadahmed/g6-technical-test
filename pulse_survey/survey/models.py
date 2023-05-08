@@ -27,3 +27,7 @@ class Result(UUIDPrimaryKeyBase, TimeStampedModel):
 class Feedback(UUIDPrimaryKeyBase, TimeStampedModel):
     content = models.CharField(max_length=4096, null=True, blank=True)
     email = models.EmailField(null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        self.email = self.email.lower()
+        super().save(*args, **kwargs)
