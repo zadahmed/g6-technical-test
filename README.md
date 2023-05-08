@@ -22,8 +22,6 @@ This is a Django app with a SQLite database.
 
 ## How to run with Docker
 
-[TODO - how to run migrations automatically?]
-
 ### Running the app
 
 - Run the app locally `docker-compose up --build --force-recreate web`
@@ -49,6 +47,5 @@ This is a Django app with a SQLite database.
 
 - To run tests `python manage.py test`
 - To run the Django shell `python manage.py shell`
-- Collect static files `python manage.py collectstatic`
 
 This has been tested using Python 3.8.
