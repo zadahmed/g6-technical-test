@@ -5,3 +5,5 @@ WORKDIR /app
 COPY requirements.lock /app/
 RUN pip install -r requirements.lock
 COPY . /app/
+WORKDIR /app/
+EXPOSE 8000
