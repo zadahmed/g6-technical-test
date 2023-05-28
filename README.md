@@ -1,6 +1,6 @@
-# pulse-survey-example
+# survey-example
 
-Example pulse survey for technical test - not a real project.
+Example staff survey for technical test - not a real project.
 
 In advance of the technical test, clone this repo.
 
@@ -12,10 +12,10 @@ The technical test will consist of a few code-based tasks (making changes to thi
 
 ## Summary
 
-The Cabinet Office are running a pulse survey to understand staff wellbeing. Cabinet Office employees will be asked to complete this survey.
+The Cabinet Office are running a staff survey to understand staff wellbeing. Cabinet Office employees will be asked to complete this survey.
 
 - Personal staff details (for example name, email) will not be submitted with their survey responses (session ID will be stored to distinguish participants)
-- The survey Collect info on team and location, in addition to answers to wellbeing questions
+- The survey collects info on team and location, in addition to answers to wellbeing questions
 - Separately to survey responses, staff can enter feedback and their email if they wish to discuss issues more
 
 This is a Django app with a SQLite database.
