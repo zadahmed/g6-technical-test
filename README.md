@@ -30,6 +30,7 @@ This is a Django app with a SQLite database.
 ### Other useful commands
 
 - Run tests `docker-compose up --build --force-recreate tests`
+- To run other management commands `docker-compose run web python manage.py <MANAGEMENT_COMMAND>`
 
 ## How to run without Docker
 
@@ -47,5 +48,6 @@ This is a Django app with a SQLite database.
 
 - To run tests `python manage.py test`
 - To run the Django shell `python manage.py shell`
+- To collect static files `python manage.py collectstatic`
 
 This has been tested using Python 3.8.
