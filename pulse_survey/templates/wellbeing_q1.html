@@ -1,21 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-<div>
-  <h1>There are opportunities for me to develop my career in my organisation</h1>
-</div>
-<div>
-  <form method="post">{{csrf_input}}
-    <fieldset>
-      <div class="radio">
+<div class="form-container">
+  <h1 class="form-title">There are opportunities for me to develop my career in my organisation</h1>
+  <form method="post" class="custom-form">{{csrf_input}}
+    <fieldset class="custom-fieldset">
+      <div class="radio-group">
         {% for answer in answers %}
-          {% if answer == chosen_answer %}
-            <input type="radio" name="q1" value="{{ answer }}" selected="selected">{{ answer }}<br>  
-          {% else %}
-            <input type="radio" name="q1" value="{{ answer }}">{{ answer }}<br>
-          {% endif %}
+          <label class="radio-label">
+            <input type="radio" name="q1" value="{{ answer }}" {% if answer == chosen_answer %}checked{% endif %}>
+            {{ answer }}
+          </label>
         {% endfor %}
       </div>
-      <input type="submit" value="Save and next" name="next">
+      <input type="submit" value="Save and Next" class="submit-btn">
     </fieldset>
   </form>
 </div>

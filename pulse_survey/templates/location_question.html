@@ -1,21 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-<div>
-  <h1>Where are you based?</h1>
-</div>
-<div>
-  <form method="post">{{csrf_input}}
-    <fieldset>
-      <div class="radio">
+<div class="form-container">
+  <h1 class="form-title">Where are you based?</h1>
+  <form method="post" class="custom-form">{{csrf_input}}
+    <fieldset class="custom-fieldset">
+      <div class="radio-group">
         {% for location in locations %}
-          {% if location == chosen_location %}
-            <input type="radio" name="location" value="{{ location }}" selected="selected">{{ location }}<br>  
-          {% else %}
-            <input type="radio" name="location" value="{{ location }}">{{ location }}<br>
-          {% endif %}
+          <label class="radio-label">
+            <input type="radio" name="location" value="{{ location }}" {% if location == chosen_location %}checked{% endif %}>
+            {{ location }}
+          </label>
         {% endfor %}
       </div>
-      <input type="submit" value="Save and next" name="next">
+      <input type="submit" value="Save and Next" class="submit-btn">
     </fieldset>
   </form>
 </div>

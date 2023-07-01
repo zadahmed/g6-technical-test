@@ -1,23 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
-<div>
-  <h1>Please provide any other feedback</h1>
-</div>
-<div>
-  <form method="post">{{csrf_input}}
-    <fieldset>
-      <p>This feedback will not be linked to your other responses.</p>
-      <p>You may optionally enter your email if you wish to be contacted about your feedback.</p>
+<div class="form-container">
+  <h1 class="form-title">Please provide any other feedback</h1>
+  <form method="post" class="custom-form">{{csrf_input}}
+    <fieldset class="custom-fieldset">
+      <p class="form-text">This feedback will not be linked to your other responses.</p>
+      <p class="form-text">You may optionally enter your email if you wish to be contacted about your feedback.</p>
       {% for error in form.email.errors %}
         <p class="help-block">{{ error }}</p>
       {% endfor %}
-      <label class="label">Email: </label>
-      <input type="text" name="email">
+      <label class="form-label">Email: </label>
+      <input type="text" name="email" class="form-input">
       <br>
-      <label class="label">Feedback: </label>
-      <textarea rows="4" name="content"></textarea>
+      <label class="form-label">Feedback: </label>
+      <textarea rows="4" name="content" class="form-input"></textarea>
       <br> 
-      <input type="submit" value="Submit feedback" name="next">
+      <input type="submit" value="Submit feedback" name="next" class="submit-btn">
     </fieldset>
   </form>
 </div>

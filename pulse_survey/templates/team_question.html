@@ -1,21 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-<div>
-  <h1>Which team are you in?</h1>
-</div>
-<div>
-  <form method="post">{{csrf_input}}
-    <fieldset>
-      <div class="radio">
+<div class="form-container">
+  <h1 class="form-title">Which team are you in?</h1>
+  <form method="post" class="custom-form">{{ csrf_input }}
+    <fieldset class="custom-fieldset">
+      <div class="radio-group">
         {% for team in teams %}
-          {% if team == chosen_team %}
-            <input type="radio" name="team" value="{{ team }}" selected="selected">{{ team }}<br>  
-          {% else %}
-            <input type="radio" name="team" value="{{ team }}">{{ team }}<br>
-          {% endif %}
+          <label class="radio-label">
+            <input type="radio" name="team" value="{{ team }}" {% if team == chosen_team %}checked{% endif %}>
+            {{ team }}
+          </label>
         {% endfor %}
       </div>
-      <input type="submit" value="Save and next" name="next">
+      <input type="submit" value="Save and Next" class="submit-btn" name="next">
     </fieldset>
   </form>
 </div>

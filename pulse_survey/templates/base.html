@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
-      .logo {
-        max-width: 100px;
-        height: auto;
-      }
-    </style>
+    <link rel="stylesheet" href="{{ static('css/styles.css') }}">
   </head>
   <body>
     <header>
-      <img src="{{ static('images/i-dot-ai-logo.svg') }}" alt="Logo" class="logo"  />
+      <img src="{{ static('images/i-dot-ai-logo.svg') }}" alt="AI Logo" class="logo"  />
     </header>
     {% block content %} {% endblock %}
     <footer></footer>
