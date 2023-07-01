@@ -8,7 +8,7 @@ from pulse_survey.survey.forms import FeedbackForm
 from pulse_survey.survey.models import Result, Feedback
 
 
-WELLBEING_RESPONSES = {"Agree", "Strongly agree", "Disagree", "Strongly disagree", "Neither agree nor disagree"}
+WELLBEING_RESPONSES = ["Strongly disagree", "Disagree",  "Neither agree nor disagree","Agree", "Strongly agree"]
 
 
 def index(request):
@@ -23,7 +23,7 @@ def team_view(request, session_id):
     errors = {}
     page_number = 1
     result, _ = Result.objects.get_or_create(session_id=session_id, page_number=page_number)
-    teams = {"Team A", "Team B", "Team C"}
+    teams = ["Team A", "Team B", "Team C"]
     chosen_team = None
     if result.data:
         chosen_team = result.data.get("team")
@@ -31,14 +31,14 @@ def team_view(request, session_id):
         result.data = request.POST
         result.save()
         return redirect(reverse("location", args=(session_id,)))
-    return render(request, "team_question.html", {"errors": errors, "teams": teams, "chosen_team": chosen_team})
+    return render(request, "team_question.html", {"errors": errors, "teams": sorted(teams), "chosen_team": chosen_team})
 
 
 def location_view(request, session_id):
     errors = {}
     page_number = 2
     result, _ = Result.objects.get_or_create(session_id=session_id, page_number=page_number)
-    locations = {"London", "Manchester", "Glasgow", "York", "Bristol"}
+    locations = ["London", "Manchester", "Glasgow", "York", "Bristol"]
     chosen_location = None
     if result.data:
         chosen_location = result.data.get("location")
@@ -46,7 +46,7 @@ def location_view(request, session_id):
         result.data = request.POST
         result.save()
         return redirect(reverse("wellbeing-q1", args=(session_id,)))
-    return render(request, "location_question.html", {"errors": errors, "locations": locations, "chosen_location": chosen_location})
+    return render(request, "location_question.html", {"errors": errors, "locations": sorted(locations), "chosen_location": chosen_location})
 
 
 
