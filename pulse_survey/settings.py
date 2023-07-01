@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pulse_survey.survey'
+    'pulse_survey.survey',
 ]
 
 MIDDLEWARE = [

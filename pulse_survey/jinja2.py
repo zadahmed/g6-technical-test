@@ -1,4 +1,3 @@
-
 from jinja2 import Environment
 from django.conf import settings
 from django.templatetags.static import static
