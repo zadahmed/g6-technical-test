@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <style>
+      .logo {
+        max-width: 100px;
+        height: auto;
+      }
+    </style>
+  </head>
   <body>
-    <head></head>
-      {% block content %}
-      {% endblock %}
+    <header>
+      <img src="{{ static('images/i-dot-ai-logo.svg') }}" alt="Logo" class="logo"  />
+    </header>
+    {% block content %} {% endblock %}
     <footer></footer>
   </body>
 </html>
