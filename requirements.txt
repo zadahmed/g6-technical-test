@@ -1,2 +1,4 @@
 django
 jinja2
+black
+safety

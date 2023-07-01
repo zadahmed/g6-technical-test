@@ -22,3 +22,14 @@ jobs:
       run: |
         python3 -m pip install --upgrade pip setuptools
         pip install -r requirements.lock
+
+    - name: Run Code formatting check
+      run: black --check .
+
+    - name: Run Tests
+      run: |
+        python manage.py test
+
+    - name: Check for security vulnerabilities
+      run: |
+        safety check
