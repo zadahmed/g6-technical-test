@@ -4,7 +4,8 @@ from django.core.exceptions import ValidationError
 
 
 def is_cabinet_office_email(email_address):
-    # TODO - update to raise a ValidationError for non-Cabinet Office emails
+    if not email_address.endswith("@cabinetoffice.gov.uk"):
+        raise ValidationError("Only Cabinet Office email addresses are allowed.")
     return True
     
 
